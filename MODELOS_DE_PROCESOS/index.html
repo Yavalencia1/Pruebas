@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelos de Procesos - Página Principal</title>
+    <title>Login - Talleres Recreativos</title>
     <link rel="stylesheet" href="index.css">
     <style>
         :root {
@@ -14,153 +14,106 @@
             --light-coral: #f28482ff;
         }
         body {
-            background-color: white;
             font-family: Arial, sans-serif;
-            text-align: center;
-            font-size: 20px; /* Aumentar el tamaño de la fuente */
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        .container {
-            max-width: 800px; /* Aumentar el ancho máximo del contenedor */
-            margin: auto;
+        .login-container {
             background: white;
-            padding: 40px; /* Aumentar el padding */
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
         }
-        .form-group {
-            margin-bottom: 20px; /* Aumentar el margen inferior */
-            text-align: left;
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-image: url('Logo.webp');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        h2, label {
+            margin-bottom: 20px;
+            color: black;
         }
         label {
             display: block;
-            font-weight: bold;
+            text-align: left;
+            margin: 10px 0 5px;
             color: black;
-            font-size: 22px; /* Aumentar el tamaño de la fuente */
         }
-        input, select, button {
+        input {
             width: 100%;
-            padding: 15px; /* Aumentar el padding */
-            margin-top: 10px; /* Aumentar el margen superior */
-            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
-            font-size: 20px; /* Aumentar el tamaño de la fuente */
+            border-radius: 8px;
+            font-size: 16px;
         }
         button {
+            width: 100%;
+            padding: 12px;
             background-color: var(--hunyadi-yellow);
+            color: white;
             border: none;
-            font-size: 22px; /* Aumentar el tamaño de la fuente */
+            border-radius: 8px;
+            font-size: 18px;
             cursor: pointer;
+            transition: 0.3s;
         }
         button:hover {
             background-color: var(--light-coral);
         }
-        .horarios-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Aumentar el espacio entre las tarjetas */
-            margin-top: 30px; /* Aumentar el margen superior */
+        .register-link {
+            margin-top: 15px;
+            display: block;
+            font-size: 14px;
+            color: var(--tea-rose-red);
+            text-decoration: none;
         }
-        .card {
-            background: white;
-            padding: 20px; /* Aumentar el padding */
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .card h3 {
-            margin: 0;
-            color: #333;
-            font-size: 24px; /* Aumentar el tamaño de la fuente */
-        }
-        .card p {
-            margin: 10px 0; /* Aumentar el margen */
-            color: #666;
-            font-size: 20px; /* Aumentar el tamaño de la fuente */
-        }
-        .btn-small {
-            background: #007BFF;
-            color: white;
-            font-size: 20px; /* Aumentar el tamaño de la fuente */
-            border: none;
-            padding: 12px; /* Aumentar el padding */
-            cursor: pointer;
-            width: 100%;
-            border-radius: 5px;
-        }
-        .btn-small:hover {
-            background: #0056b3;
+        .register-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Modelos de Procesos</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Bienvenido</h2>
-            <p>Por favor, inicie sesión para continuar:</p>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Iniciar Sesión</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Modelos de Procesos</p>
-    </footer>
+    <div class="login-container">
+        <div class="logo"></div>
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label for="username">Usuario (Correo para estudiantes o 'Admin')</label>
+            <input type="text" id="username" placeholder="Ingresa tu usuario o correo" required>
+            
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        <a href="estudiantes/registroAlumnos.html" class="register-link">Registrarse como estudiante</a>
+    </div>
+    
     <script>
-        const horariosSemana = ["12:00 - 1:30", "1:30 - 3:00", "3:00 - 4:30", "4:30 - 6:00"];
-        const horariosSabado = ["8:30 - 10:00", "10:00 - 11:30", "11:30 - 1:00", "1:00 - 2:30"];
-
-        function mostrarHorarios() {
-            const diaSeleccionado = document.getElementById('diaClase').value;
-            const listaHorarios = document.getElementById('listaHorarios');
-            listaHorarios.innerHTML = '';
-            let horarios = JSON.parse(localStorage.getItem('horarios')) || [];
-
-            horarios = horarios.filter(h => h.dia === diaSeleccionado);
-
-            horarios.forEach(h => {
-                const card = document.createElement('div');
-                card.classList.add('card');
-                card.innerHTML = `
-                    <h3>${h.dia} - ${h.hora}</h3>
-                    <p>Curso: ${h.curso}</p>
-                    <button class='btn-small' onclick="confirmarInscripcion('${h.curso}', '${h.dia}', '${h.hora}')">Inscribirme</button>
-                `;
-                listaHorarios.appendChild(card);
-            });
-        }
-
-        function confirmarInscripcion(curso, dia, hora) {
-            const confirmacion = confirm(`¿Deseas inscribirte en el curso de ${curso} el ${dia} a las ${hora}?`);
-            if (confirmacion) {
-                alert('Inscripción exitosa.');
-            }
-        }
-
-        document.getElementById('diaClase').addEventListener('change', mostrarHorarios);
-        mostrarHorarios();
-
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (username === 'admin' && password === 'admin') {
-                window.location.href = 'admin/index.html';
-            } else if (username === 'estudiante' && password === 'estudiante') {
-                window.location.href = 'estudiante/index.html';
+            let username = document.getElementById('username').value.trim();
+            let password = document.getElementById('password').value;
+            
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let user = users.find(user => (user.username === username || user.email === username) && user.password === password);
+            
+            if (username === "Admin" && password === "admi123") {
+                window.location.href = "admin/index.html";
+            } else if (user) {
+                window.location.href = "estudiantes/index.html";
             } else {
-                alert('Credenciales incorrectas. Inténtelo de nuevo.');
+                alert("Credenciales incorrectas. Asegúrate de ingresar correctamente.");
             }
         });
     </script>

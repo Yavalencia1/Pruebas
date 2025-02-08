@@ -22,9 +22,14 @@
     <main>
         <section id="horarios">
             <h2>Gestión de Horarios</h2>
-            <button onclick="confirmAction('Agregar Horario')">Agregar Horario</button>
-            <button onclick="confirmAction('Modificar Horario')">Modificar Horario</button>
-            <button onclick="confirmAction('Eliminar Horario')">Eliminar Horario</button>
+            <button onclick="toggleForm('horarioForm')">Agregar Horario</button>
+            <form id="horarioForm" class="hidden" onsubmit="addHorario(event)">
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" required>
+                <label for="horario">Horario:</label>
+                <input type="text" id="horario" required>
+                <button type="submit">Guardar</button>
+            </form>
             <table>
                 <thead>
                     <tr>
@@ -33,7 +38,7 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="horariosTableBody">
                     <!-- Datos de horarios -->
                 </tbody>
             </table>

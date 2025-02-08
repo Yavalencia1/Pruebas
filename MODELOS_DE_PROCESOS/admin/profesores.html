@@ -22,9 +22,14 @@
     <main>
         <section id="profesores">
             <h2>Gestión de Profesores</h2>
-            <button onclick="confirmAction('Agregar Profesor')">Agregar Profesor</button>
-            <button onclick="confirmAction('Modificar Profesor')">Modificar Profesor</button>
-            <button onclick="confirmAction('Eliminar Profesor')">Eliminar Profesor</button>
+            <button onclick="toggleForm('profesorForm')">Agregar Profesor</button>
+            <form id="profesorForm" class="hidden" onsubmit="addProfesor(event)">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                <label for="departamento">Departamento:</label>
+                <input type="text" id="departamento" required>
+                <button type="submit">Guardar</button>
+            </form>
             <table>
                 <thead>
                     <tr>
@@ -33,7 +38,7 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="profesoresTableBody">
                     <!-- Datos de profesores -->
                 </tbody>
             </table>

@@ -22,18 +22,30 @@
     <main>
         <section id="cursos">
             <h2>Gestión de Cursos</h2>
-            <button onclick="confirmAction('Agregar Curso')">Agregar Curso</button>
-            <button onclick="confirmAction('Modificar Curso')">Modificar Curso</button>
-            <button onclick="confirmAction('Eliminar Curso')">Eliminar Curso</button>
+            <button onclick="toggleForm('cursoForm')">Agregar Curso</button>
+            <form id="cursoForm" class="hidden" onsubmit="addCurso(event)">
+                <label for="nombreCurso">Nombre:</label>
+                <input type="text" id="nombreCurso" required>
+                <label for="numCupos">Número de Cupos:</label>
+                <select id="numCupos" required>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                </select>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" required>
+                <button type="submit">Guardar</button>
+            </form>
             <table>
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Número de Cupos</th>
                         <th>Descripción</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="cursosTableBody">
                     <!-- Datos de cursos -->
                 </tbody>
             </table>

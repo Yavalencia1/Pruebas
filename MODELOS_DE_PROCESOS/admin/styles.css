@@ -1,20 +1,28 @@
+:root {
+    --hunyadi-yellow: #f6bd60ff;
+    --linen: #f7ede2ff;
+    --tea-rose-red: #f5cac3ff;
+    --cambridge-blue: #84a59dff;
+    --light-coral: #f28482ff;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--linen);
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--cambridge-blue);
+    color: white;
     padding: 1rem;
     text-align: center;
 }
 
 nav {
-    background-color: #444;
-    color: #fff;
+    background-color: var(--tea-rose-red);
+    color: white;
     padding: 1rem;
 }
 
@@ -29,7 +37,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
@@ -38,7 +46,7 @@ main {
 }
 
 section {
-    background-color: #fff;
+    background-color: white;
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 5px;
@@ -50,8 +58,8 @@ h2 {
 }
 
 button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--hunyadi-yellow);
+    color: white;
     border: none;
     padding: 0.5rem 1rem;
     margin: 0.5rem 0;
@@ -60,7 +68,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--light-coral);
 }
 
 table {
@@ -79,12 +87,12 @@ th, td {
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: var(--linen);
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--cambridge-blue);
+    color: white;
     text-align: center;
     padding: 1rem;
     position: fixed;
@@ -96,8 +104,8 @@ footer {
     position: fixed;
     top: 1rem;
     right: 1rem;
-    background-color: #28a745;
-    color: #fff;
+    background-color: var(--hunyadi-yellow);
+    color: white;
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

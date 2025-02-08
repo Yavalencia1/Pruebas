@@ -101,7 +101,7 @@
 
             <button type="submit">Registrarse</button>
         </form>
-        <a href="login.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
+        <a href="../index.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
     </div>
 
     <script>
@@ -119,8 +119,12 @@
                 return;
             }
             
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push({ fullName, email, username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            
             alert("Registro exitoso. Ahora puedes iniciar sesión.");
-            window.location.href = "login.html";
+            window.location.href = "index.html";
         });
     </script>
 </body>
