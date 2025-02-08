@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Talleres Creativos</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --hunyadi-yellow: #f6bd60ff;
+            --linen: #f7ede2ff;
+            --tea-rose-red: #f5cac3ff;
+            --cambridge-blue: #84a59dff;
+            --light-coral: #f28482ff;
+        }
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 20px; /* Aumentar el tamaño de la fuente */
+        }
+        .container {
+            max-width: 800px; /* Aumentar el ancho máximo del contenedor */
+            margin: auto;
+            background: white;
+            padding: 40px; /* Aumentar el padding */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px; /* Aumentar el margen inferior */
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: black;
+            font-size: 22px; /* Aumentar el tamaño de la fuente */
+        }
+        input, select, button {
+            width: 100%;
+            padding: 15px; /* Aumentar el padding */
+            margin-top: 10px; /* Aumentar el margen superior */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 20px; /* Aumentar el tamaño de la fuente */
+        }
+        button {
+            background-color: var(--hunyadi-yellow);
+            border: none;
+            font-size: 22px; /* Aumentar el tamaño de la fuente */
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: var(--light-coral);
+        }
+        .horarios-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Aumentar el espacio entre las tarjetas */
+            margin-top: 30px; /* Aumentar el margen superior */
+        }
+        .card {
+            background: white;
+            padding: 20px; /* Aumentar el padding */
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .card h3 {
+            margin: 0;
+            color: #333;
+            font-size: 24px; /* Aumentar el tamaño de la fuente */
+        }
+        .card p {
+            margin: 10px 0; /* Aumentar el margen */
+            color: #666;
+            font-size: 20px; /* Aumentar el tamaño de la fuente */
+        }
+        .btn-small {
+            background: #007BFF;
+            color: white;
+            font-size: 20px; /* Aumentar el tamaño de la fuente */
+            border: none;
+            padding: 12px; /* Aumentar el padding */
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .btn-small:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Gestión de Talleres Creativos</h1>
+
+    <div class="container">
+        <div class="form-group">
+            <label for="diaClase">Día de la Clase:</label>
+            <select id="diaClase">
+                <option value="">Selecciona un día...</option>
+                <option value="Lunes">Lunes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
+            </select>
+        </div>
+
+        <h2>Horarios Disponibles</h2>
+        <div class="horarios-container" id="listaHorarios"></div>
+    </div>
+
+    <script>
+        const horariosSemana = ["12:00 - 1:30", "1:30 - 3:00", "3:00 - 4:30", "4:30 - 6:00"];
+        const horariosSabado = ["8:30 - 10:00", "10:00 - 11:30", "11:30 - 1:00", "1:00 - 2:30"];
+
+        function mostrarHorarios() {
+            const diaSeleccionado = document.getElementById('diaClase').value;
+            const listaHorarios = document.getElementById('listaHorarios');
+            listaHorarios.innerHTML = '';
+            let horarios = JSON.parse(localStorage.getItem('horarios')) || [];
+
+            horarios = horarios.filter(h => h.dia === diaSeleccionado);
+
+            horarios.forEach(h => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <h3>${h.dia} - ${h.hora}</h3>
+                    <p>Curso: ${h.curso}</p>
+                    <button class='btn-small' onclick="confirmarInscripcion('${h.curso}', '${h.dia}', '${h.hora}')">Inscribirme</button>
+                `;
+                listaHorarios.appendChild(card);
+            });
+        }
+
+        function confirmarInscripcion(curso, dia, hora) {
+            const confirmacion = confirm(`¿Deseas inscribirte en el curso de ${curso} el ${dia} a las ${hora}?`);
+            if (confirmacion) {
+                alert('Inscripción exitosa.');
+            }
+        }
+
+        document.getElementById('diaClase').addEventListener('change', mostrarHorarios);
+        mostrarHorarios();
+    </script>
+</body>
+</html>
