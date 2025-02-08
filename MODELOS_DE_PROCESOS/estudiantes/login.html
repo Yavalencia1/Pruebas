@@ -106,9 +106,9 @@
             let password = document.getElementById('password').value;
             
             if (username === "Admin" && password === "admi123") {
-                window.location.href = "index.html";
+                window.location.href = "../admin/index.html";
             } else if (username.includes("@") && password !== "") {
-                window.location.href = "registro.html";
+                window.location.href = "../estudiante/index.html";
             } else {
                 alert("Credenciales incorrectas. Asegúrate de ingresar correctamente.");
             }
