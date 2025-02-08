@@ -100,9 +100,7 @@
         <section>
             <h2>Bienvenido</h2>
             <p>Por favor, inicie sesión para continuar:</p>
-            <ul>
-                <li><a href="login.html">Iniciar Sesión</a></li>
-            </ul>
+            <a href="login.html" class="btn">Iniciar Sesión</a>
         </section>
     </main>
     <footer>
@@ -141,6 +139,18 @@
 
         document.getElementById('diaClase').addEventListener('change', mostrarHorarios);
         mostrarHorarios();
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin') {
+                window.location.href = 'admin/index.html';
+            } else {
+                alert('Credenciales incorrectas. Inténtelo de nuevo.');
+            }
+        });
     </script>
 </body>
 </html>
