@@ -31,15 +31,14 @@
             width: 400px;
         }
         .logo {
-    width: 120px;
-    height: 120px;
-    background-image: url('Logo.webp');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-}
-
+            width: 120px;
+            height: 120px;
+            background-image: url('Logo.webp');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
         h2, label {
             margin-bottom: 20px;
             color: black;
@@ -95,17 +94,9 @@
             <label for="password">Contraseña</label>
             <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
             
-            <label for="userType">Tipo de Usuario</label>
-            <select id="userType" required>
-                <option value="">Selecciona el tipo de usuario</option>
-                <option value="admin">Administrador</option>
-                <option value="student">Estudiante</option>
-            </select>
-            
             <button type="submit">Ingresar</button>
         </form>
         <a href="registroAlumnos.html" class="register-link">Registrarse como estudiante</a>
-
     </div>
     
     <script>
@@ -113,11 +104,10 @@
             event.preventDefault();
             let username = document.getElementById('username').value.trim();
             let password = document.getElementById('password').value;
-            let userType = document.getElementById('userType').value;
             
-            if (userType === "admin" && username === "Admin" && password === "admi123") {
+            if (username === "Admin" && password === "admi123") {
                 window.location.href = "index.html";
-            } else if (userType === "student" && username.includes("@") && password !== "") {
+            } else if (username.includes("@") && password !== "") {
                 window.location.href = "registro.html";
             } else {
                 alert("Credenciales incorrectas. Asegúrate de ingresar correctamente.");
