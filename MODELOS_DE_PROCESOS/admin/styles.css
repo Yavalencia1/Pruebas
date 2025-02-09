@@ -1,27 +1,27 @@
 :root {
-    --hunyadi-yellow: #f6bd60ff;
-    --linen: #f7ede2ff;
-    --tea-rose-red: #f5cac3ff;
-    --cambridge-blue: #84a59dff;
-    --light-coral: #f28482ff;
+    --eggplant: #713e5aff;
+    --mint: #63a375ff;
+    --sunset: #edc79bff;
+    --burnt-sienna: #d57a66ff;
+    --blush: #ca6680ff;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--linen);
+    background-color: var(--sunset);
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: var(--cambridge-blue);
+    background-color: var(--eggplant);
     color: white;
     padding: 1rem;
     text-align: center;
 }
 
 nav {
-    background-color: var(--tea-rose-red);
+    background-color: var(--burnt-sienna);
     color: white;
     padding: 1rem;
 }
@@ -58,7 +58,7 @@ h2 {
 }
 
 button {
-    background-color: var(--hunyadi-yellow);
+    background-color: var(--blush);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -68,7 +68,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--light-coral);
+    background-color: var(--burnt-sienna);
 }
 
 table {
@@ -87,11 +87,11 @@ th, td {
 }
 
 th {
-    background-color: var(--linen);
+    background-color: var(--sunset);
 }
 
 footer {
-    background-color: var(--cambridge-blue);
+    background-color: var(--eggplant);
     color: white;
     text-align: center;
     padding: 1rem;
@@ -104,7 +104,7 @@ footer {
     position: fixed;
     top: 1rem;
     right: 1rem;
-    background-color: var(--hunyadi-yellow);
+    background-color: var(--blush);
     color: white;
     padding: 1rem;
     border-radius: 5px;

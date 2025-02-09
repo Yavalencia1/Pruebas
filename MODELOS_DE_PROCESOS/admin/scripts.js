@@ -46,11 +46,11 @@ function addHorario(event) {
 function addCurso(event) {
     event.preventDefault();
     const nombreCurso = document.getElementById('nombreCurso').value;
-    const numCupos = document.getElementById('numCupos').value; // Obtener el número de cupos seleccionado
+    const numCupos = document.getElementById('numCupos').value;
     const descripcion = document.getElementById('descripcion').value;
     const tableBody = document.getElementById('cursosTableBody');
     const row = document.createElement('tr');
-    row.innerHTML = `<td>${nombreCurso}</td><td>${numCupos}</td><td>${descripcion}</td>`; // Incluir el número de cupos en la tabla
+    row.innerHTML = `<td>${nombreCurso}</td><td>${numCupos}</td><td>${descripcion}</td>`;
     tableBody.appendChild(row);
     toggleForm('cursoForm');
 }
